@@ -19,6 +19,7 @@ dataframe = dataframe.replace(",", "", regex=True)
 dataframe = dataframe.replace("-", "", regex=True)
 dataframe = dataframe.replace("", np.nan)
 dataframe = dataframe.replace("MAY90", np.nan)
+dataframe = dataframe.dropna() # removendo os nulos.
 
 
 """ Convertendo alguns campos para float:"""
@@ -27,3 +28,20 @@ dataframe[lista] = dataframe[lista].astype("float")
 
 
 ''' Retornando as 5 primeiras linhas do dataframe:'''
+dataframe.head()
+
+
+''' Conversão da coluna month para o modelo datetime: '''
+dataframe.Month = pd.to_datetime(dataframe.Month.str.upper(), format="%b%y", yearfirst=False)
+dataframe = dataframe.set_index("Month")
+
+########################################
+
+""" Agora iniciaremos a Analise Exploratoria e Visualização com Matplotlib e Seaborn"""
+import seaborn as sns # type: ignore 
+import matplotlib
+import matplotlib.pyplot as plt # type: ignore
+
+
+
+
