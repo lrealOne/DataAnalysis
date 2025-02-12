@@ -42,6 +42,28 @@ import seaborn as sns # type: ignore
 import matplotlib
 import matplotlib.pyplot as plt # type: ignore
 
+''' Mapa de calor: '''
+
+raw_data=['Coarse wool Price',  'Copra Price','Cotton Price', 'Fine wool Price',  'Hard log Price', 'Hard sawnwood Price',
+ 'Hide Price', 'Plywood Price', 'Rubber Price', 'Softlog Price', 'Soft sawnwood Price', 'Wood pulp Price']
+
+
+# matriz correlata
+corrmat = dataframe[raw_data].corr()
+
+
+# tamanho grafico
+fig = plt.figure(figsize = (12, 9))
+
+
+# mascarando a parte de cima devido a simetria da matriz
+mask = np.triu(np.ones_like(corrmat, dtype=bool))
+sns.heatmap(corrmat, vmax = .8,mask=mask, square = True, annot = True)
+plt.show()
+
+
+''''''
+
 
 
 
