@@ -76,5 +76,14 @@ for i in range(len(materials)):
     plt.legend(materials[i:],loc='upper center',bbox_to_anchor=(1.2,1))
 
 
-
+''' Analise da materia prima com menor preço ao longo dos anos:'''
+plt.figure(figsize=(10, 10))
+materials_list=['Copra Price','Softlog Price','Rubber Price','Cotton Price','Coarse wool Price','Fine wool Price','Hard log Price','Hard sawnwood Price','Hide Price','Plywood Price','Soft sawnwood Price','Wood pulp Price']
+for i in range(len(materials_list)):
+    plt.subplot(4,3,i+1)
+    plt.subplots_adjust( hspace=1 ,wspace=0.5)
+    plt.title(materials_list[i])
+    plt.plot(dataframe[materials_list[i]])
+    plt.xticks(rotation=90)
+plt.suptitle("Comparação de preço.")
 
