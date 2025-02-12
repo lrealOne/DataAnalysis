@@ -62,7 +62,18 @@ sns.heatmap(corrmat, vmax = .8,mask=mask, square = True, annot = True)
 plt.show()
 
 
-''''''
+''' Pequeno grafico evolutivo sobre a lã grossa e seu percentual de preço:'''
+la_map=dataframe[["Coarse wool Price", "Coarse wool price % Change"]].plot(figsize=(11, 9), subplots=True, linewidth=1)
+
+
+''' Variação do preço de cada item utilizando um for para percorrer a lista:'''
+materials=['Copra price % Change','Softlog price % Change','Rubber price % Change','Cotton price % Change','Coarse wool price % Change','Fine wool price % Change','Hard log price % Change','Hard sawnwood price % Change','Hide price % change','Plywood price % Change','Soft sawnwood price % Change','Wood pulp price % Change']
+for i in range(len(materials)):
+    plt.figure(figsize=(12,12))
+    dataframe[materials[i]].hist(figsize=(11, 9), linewidth=1)
+    plt.xlabel('% Change')
+    plt.ylabel('count')
+    plt.legend(materials[i:],loc='upper center',bbox_to_anchor=(1.2,1))
 
 
 
